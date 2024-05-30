@@ -5,9 +5,8 @@ terraform {
       version = "~> 5.0"
     }
   }
-
   backend "s3" {
-    bucket = "live-kenerry-lambda-terraform"
+    bucket = "live-remote-state-backend-terraform"
     key    = "terraform/terraform.tfstate"
     region = "us-east-1"
   }
