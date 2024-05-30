@@ -17,7 +17,10 @@ export const handler = async (event) => {
     try {
         const { ContentType } = await s3.getObject(params);
         console.log('CONTENT TYPE:', ContentType);
-        return ContentType;
+        return {
+            ContentType,
+            Version: "2.0"
+        };
     } catch (err) {
         console.log(err);
         const message = `Error getting object ${key} from bucket ${bucket}. Make sure they exist and your bucket is in the same region as this function.`;
